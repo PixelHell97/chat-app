@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">TocTalk</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="login">Login</string>
+    <string name="or_create_my_account">Or Create My Account</string>
+    <string name="username">Username</string>
+    <string name="join">Join</string>
+    <string name="create_account">Create Account</string>
+    <string name="password_confirm">Confirm Password</string>
+    <string name="create_group">Create Group</string>
 </resources>
