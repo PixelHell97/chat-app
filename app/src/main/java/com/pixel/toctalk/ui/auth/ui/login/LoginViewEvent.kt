@@ -1,6 +1,6 @@
-package com.pixel.toctalk.auth.ui.login
+package com.pixel.toctalk.ui.auth.ui.login
 
-import com.pixel.toctalk.auth.database.User
+import com.pixel.toctalk.data.database.model.User
 
 sealed class LoginViewEvent {
 

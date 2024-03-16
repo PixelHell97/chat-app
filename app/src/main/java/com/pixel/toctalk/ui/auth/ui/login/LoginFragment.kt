@@ -1,4 +1,4 @@
-package com.pixel.toctalk.auth.ui.login
+package com.pixel.toctalk.ui.auth.ui.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,12 +8,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.pixel.toctalk.Constants
 import com.pixel.toctalk.R
-import com.pixel.toctalk.auth.database.User
-import com.pixel.toctalk.auth.extensions.showDialog
-import com.pixel.toctalk.auth.ui.InputState
-import com.pixel.toctalk.base.BaseFragment
+import com.pixel.toctalk.data.database.model.User
 import com.pixel.toctalk.databinding.FragmentLoginBinding
-import com.pixel.toctalk.home.ui.HomeFragment
+import com.pixel.toctalk.ui.auth.ui.InputState
+import com.pixel.toctalk.ui.base.BaseFragment
+import com.pixel.toctalk.ui.extensions.showDialog
 
 class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
     override fun initViewModel(): LoginViewModel =
@@ -28,6 +27,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
         super.onViewCreated(view, savedInstanceState)
         initViews()
         observeLiveData()
+        viewModel.checkLoggedIn()
     }
 
     private fun observeLiveData() {
@@ -52,7 +52,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
         startActivity(
             Intent(
                 requireContext(),
-                HomeFragment::class.java,
+                com.pixel.toctalk.ui.home.MainActivity::class.java,
             ).putExtra(Constants.PARSE_USER, user),
         )
         requireActivity().finish()

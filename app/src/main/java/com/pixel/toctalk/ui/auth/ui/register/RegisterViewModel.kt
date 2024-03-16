@@ -1,15 +1,17 @@
-package com.pixel.toctalk.auth.ui.register
+package com.pixel.toctalk.ui.auth.ui.register
 
+import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import com.pixel.toctalk.auth.database.MyDatabase
-import com.pixel.toctalk.auth.database.User
-import com.pixel.toctalk.auth.extensions.model.Message
-import com.pixel.toctalk.auth.ui.InputState
-import com.pixel.toctalk.base.BaseViewModel
+import com.pixel.toctalk.data.database.MyDatabase
+import com.pixel.toctalk.data.database.model.User
+import com.pixel.toctalk.ui.auth.ui.InputState
+import com.pixel.toctalk.ui.base.BaseViewModel
+import com.pixel.toctalk.ui.extensions.model.Message
 
 class RegisterViewModel : BaseViewModel() {
+    val userProfilePicLiveData = MutableLiveData<Uri>()
     val usernameLiveData = MutableLiveData<String>()
     val usernameError = MutableLiveData<String?>()
     val emailLiveData = MutableLiveData<String>()
@@ -43,25 +45,34 @@ class RegisterViewModel : BaseViewModel() {
         }
     }
 
+    fun setProfilePic(imageUri: Uri) {
+        userProfilePicLiveData.value = imageUri
+    }
+
     private fun createUserInDB(uid: String) {
-        val user = User(
-            uid = uid,
-            username = usernameLiveData.value!!,
-            email = emailLiveData.value!!,
-        )
-        MyDatabase
-            .createUser(user) { task ->
-                isLoading.value = false
-                if (task.isSuccessful) {
-                    event.postValue(RegisterViewEvent.NavigateToLogin)
-                } else {
-                    messageDialog.value = Message(
-                        title = "Creation Error",
-                        message = task.exception?.localizedMessage
-                            ?: "Unable to create new account\nPlease try again",
-                    )
-                }
+        MyDatabase.uploadUserPic(uid, userProfilePicLiveData.value) {
+            if (it.isSuccessful) {
+                val user = User(
+                    uid = uid,
+                    username = usernameLiveData.value!!,
+                    email = emailLiveData.value!!,
+                    profilePic = it.result.toString(),
+                )
+                MyDatabase
+                    .createUser(user) { task ->
+                        isLoading.value = false
+                        if (task.isSuccessful) {
+                            event.postValue(RegisterViewEvent.NavigateToLogin)
+                        } else {
+                            messageDialog.value = Message(
+                                title = "Creation Error",
+                                message = task.exception?.localizedMessage
+                                    ?: "Unable to create new account\nPlease try again",
+                            )
+                        }
+                    }
             }
+        }
     }
 
     private fun isValid(): Boolean {

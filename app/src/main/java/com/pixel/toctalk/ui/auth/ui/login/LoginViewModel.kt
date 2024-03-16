@@ -1,13 +1,13 @@
-package com.pixel.toctalk.auth.ui.login
+package com.pixel.toctalk.ui.auth.ui.login
 
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import com.pixel.toctalk.auth.database.MyDatabase
-import com.pixel.toctalk.auth.database.User
-import com.pixel.toctalk.auth.extensions.model.Message
-import com.pixel.toctalk.auth.ui.InputState
-import com.pixel.toctalk.base.BaseViewModel
+import com.pixel.toctalk.data.database.MyDatabase
+import com.pixel.toctalk.data.database.model.User
+import com.pixel.toctalk.ui.auth.ui.InputState
+import com.pixel.toctalk.ui.base.BaseViewModel
+import com.pixel.toctalk.ui.extensions.model.Message
 
 class LoginViewModel : BaseViewModel() {
     val emailLiveData = MutableLiveData<String>()
@@ -21,7 +21,7 @@ class LoginViewModel : BaseViewModel() {
     fun login() {
         if (isLoading.value == true) return
         if (!isValidInputs()) return
-        isLoading.value = false
+        isLoading.value = true
         auth.signInWithEmailAndPassword(
             emailLiveData.value!!,
             passwordLiveData.value!!,
@@ -58,6 +58,17 @@ class LoginViewModel : BaseViewModel() {
 
     fun navToReg() {
         event.postValue(LoginViewEvent.NavigateToReg)
+    }
+
+    fun checkLoggedIn() {
+        val user = Firebase.auth.currentUser ?: return
+        event.value = LoginViewEvent.NavigateToHome(
+            User(
+                uid = user.uid,
+                username = user.displayName,
+                email = user.email,
+            ),
+        )
     }
 
     private fun isValidInputs(): Boolean {
