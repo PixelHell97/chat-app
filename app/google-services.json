@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "855891260054",
+    "project_id": "chat-app-b0c69",
+    "storage_bucket": "chat-app-b0c69.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855891260054:android:cc4c5ba01907220e1888b7",
+        "android_client_info": {
+          "package_name": "com.pixel.toctalk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmwtGV_elZ_9KltibhZ0ODVNViIQFZvwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

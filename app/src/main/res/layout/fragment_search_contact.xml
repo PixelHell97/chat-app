@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.pixel.toctalk.ui.home.fragment.home.searchContact.SearchContactViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_sky_blue"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".ui.home.fragment.home.searchContact.SearchContactFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/content_username_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="32dp"
+            android:background="@color/white"
+            android:hint="@string/contact_username"
+            app:errorMessage="@{vm.contactUsernameError}"
+            app:startIconDrawable="@drawable/ic_user">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/content_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={vm.contactUsername}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/start_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:onClick="@{() -> vm.searchContact()}"
+            app:cardBackgroundColor="@{vm.isLoading == false ? @color/light_blue : @color/white}"
+            app:contentPaddingBottom="2dp"
+            app:contentPaddingLeft="16dp"
+            app:contentPaddingRight="16dp"
+            app:contentPaddingTop="2dp"
+            tools:cardBackgroundColor="@color/light_blue">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_medium1"
+                android:text="@string/search_chat"
+                android:textColor="@color/white" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:visibility="@{vm.isLoading == false ? View.GONE : View.VISIBLE}"
+                app:indicatorColor="@color/light_blue" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/contacts_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_contact" />
+
+            <TextView
+                android:id="@+id/message_no_user_found"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:text="@string/no_user_found"
+                android:textColor="#A1A1A1"
+                android:textSize="22sp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</layout>

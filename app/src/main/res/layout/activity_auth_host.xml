@@ -5,24 +5,24 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_main"
-    tools:context=".auth.AuthHostActivity">
+    android:background="@drawable/blue_wave"
+    tools:context=".ui.auth.AuthHostActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent">
+        android:background="@android:color/transparent"
+        android:theme="@style/Theme.TocTalk.AppBarOverlay">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/auth_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:navigationIconTint="@color/white"
+            android:background="@android:color/transparent"
+            app:popupTheme="@style/Theme.TocTalk.PopupOverlay"
             app:titleCentered="true"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="@color/clock_gray" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include
-        android:id="@+id/content_auth"
-        layout="@layout/content_auth" />
+    <include layout="@layout/content_auth" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

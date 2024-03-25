@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.googleServices)
+    id("androidx.navigation.safeargs.kotlin")
     id("kotlin-kapt")
     id("kotlin-parcelize")
 }
@@ -65,4 +66,12 @@ dependencies {
     // Firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.bundles.firebase)
+    implementation(libs.firebase.ui.storage)
+    implementation(libs.firebase.ui.firestore)
+
+    // glide
+    implementation(libs.glide)
+
+    // viewPager2
+    implementation(libs.androidx.viewpager2)
 }

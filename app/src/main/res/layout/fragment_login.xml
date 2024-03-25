@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.pixel.toctalk.auth.ui.login.LoginViewModel" />
+            type="com.pixel.toctalk.ui.auth.fragment.login.LoginViewModel" />
 
         <import type="android.view.View" />
     </data>
@@ -20,8 +20,7 @@
         android:orientation="vertical"
         android:paddingHorizontal="32dp"
         android:paddingTop="32dp"
-        tools:background="@drawable/bg_main"
-        tools:context=".auth.ui.login.LoginFragment">
+        tools:context=".ui.auth.fragment.login.LoginFragment">
 
         <TextView
             android:id="@+id/welcome_message"
@@ -137,9 +136,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:fontFamily="@font/poppins_medium1"
-            android:onClick="@{() -> vm.navToReg()}"
             android:text="@string/or_create_my_account"
-            android:textColor="#505050"
+            android:shadowColor="@color/black"
+            android:shadowRadius="4"
+            android:textColor="@color/white"
             android:textSize="14sp" />
     </LinearLayout>
 </layout>

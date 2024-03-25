@@ -10,4 +10,36 @@
     <string name="create_account">Create Account</string>
     <string name="password_confirm">Confirm Password</string>
     <string name="create_group">Create Group</string>
+    <string name="no_rooms_joined_yet">No rooms joined yet\n</string>
+    <string name="no_rooms_here_yet">No rooms here yet\nclick the FAB to create your room</string>
+    <string name="no_chat_here_yet">No chat here yet</string>
+
+    <string-array name="home_tabs_title">
+        <item>Chat</item>
+        <item>My Groups</item>
+        <item>Browse Groups</item>
+    </string-array>
+    <plurals name="members_count">
+        <item quantity="one">%d Member</item>
+        <item quantity="other">%d Members</item>
+    </plurals>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="type_message">Type message</string>
+    <string name="send">Send</string>
+    <string name="create_new_group">Create new group</string>
+    <string name="group_name">Group name</string>
+    <string name="group_description">Group description</string>
+    <string name="click_to_select_a_photo">Click to select a photo</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_account">Account</string>
+    <string name="leave_group">Leave group</string>
+    <string name="description">Description…</string>
+    <string name="members">Members…</string>
+    <string name="contact_username">Contact username</string>
+    <string name="search_chat">Search Contact</string>
+    <string name="you">you: %s</string>
+    <string name="no_user_found">No user found</string>
+    <string name="login_again">Login again</string>
+    <string name="login_failed">Unable to login\nPlease try again</string>
+    <string name="unable_to_login">Unable to Login</string>
 </resources>

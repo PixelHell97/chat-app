@@ -1,5 +1,8 @@
 [versions]
-agp = "8.3.0"
+agp = "8.3.1"
+firebaseUiFirestore = "8.0.2"
+firebaseUiStorage = "8.0.2"
+glide = "4.16.0"
 kotlin = "1.9.0"
 coreKtx = "1.12.0"
 junit = "4.13.2"
@@ -21,10 +24,16 @@ leakcanaryAndroid = "3.0-alpha-1"
 
 #firebase
 google-services = "4.4.1"
-firebase-bom = "32.7.4"
+firebase-bom = "32.8.0"
+viewpager2 = "1.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-navigation-safe-args-gradle-plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigationFragmentKtx" }
+androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
+firebase-ui-firestore = { module = "com.firebaseui:firebase-ui-firestore", version.ref = "firebaseUiFirestore" }
+firebase-ui-storage = { module = "com.firebaseui:firebase-ui-storage", version.ref = "firebaseUiStorage" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -45,12 +54,14 @@ firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "fir
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-auth = { module = "com.google.firebase:firebase-auth" }
 firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
+firebase-storage = { module = "com.google.firebase:firebase-storage" }
 
 [bundles]
 firebase = [
     "firebase-analytics",
     "firebase-auth",
-    "firebase-firestore"
+    "firebase-firestore",
+    "firebase-storage"
 ]
 
 [plugins]
@@ -59,5 +70,6 @@ jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "k
 
 #firebase
 googleServices = { id = "com.google.gms.google-services", version.ref = "google-services" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
 
 

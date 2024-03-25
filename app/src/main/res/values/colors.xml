@@ -6,4 +6,15 @@
     <color name="dark_blue">#2872A4</color>
     <color name="light_blue">#3598DB</color>
     <color name="text_gray">#303030</color>
+    <color name="chat_blue">#3598DB</color>
+    <color name="clock_gray">#282F39</color>
+    <color name="text_color">#303030</color>
+    <color name="gray">#FFBDBDBD</color>
+    <color name="red">#FBA834</color>
+    <color name="sky_blue">#DFF5FF</color>
+    <color name="light_sky_blue">#EBF9FF</color>
+    <color name="very_light_blue">#ACE2E1</color>
+    <color name="light_red">#FF6969</color>
+    <color name="dark_pink">#F4538A</color>
+    <color name="pretty_gray">#505050</color>
 </resources>

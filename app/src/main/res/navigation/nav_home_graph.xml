@@ -1,11 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_home_graph"
-    app:startDestination="@id/homeFragment">
-
+    app:startDestination="@id/nav_home">
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.pixel.toctalk.home.ui.HomeFragment"
-        android:label="HomeFragment" />
+        android:id="@+id/nav_home"
+        android:name="com.pixel.toctalk.ui.home.fragment.home.HomeFragment"
+        android:label="TokTalk"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_createGroupFragment"
+            app:destination="@id/createGroupFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_joinGroupBottomSheet"
+            app:destination="@id/joinGroupBottomSheet" />
+        <action
+            android:id="@+id/action_nav_home_to_searchContactBottomSheet"
+            app:destination="@id/searchContactBottomSheet" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.pixel.toctalk.ui.home.fragment.chat.ChatFragment"
+        tools:layout="@layout/fragment_chat">
+        <action
+            android:id="@+id/action_chatFragment_to_groupDetailsFragment"
+            app:destination="@id/groupDetailsFragment" />
+        <action
+            android:id="@+id/action_chatFragment_to_contentDetailsFragment"
+            app:destination="@id/contentDetailsFragment" />
+        <argument
+            android:name="groupChat"
+            android:defaultValue="@null"
+            app:argType="com.pixel.toctalk.data.model.Group"
+            app:nullable="true" />
+        <argument
+            android:name="contentChat"
+            android:defaultValue="@null"
+            app:argType="com.pixel.toctalk.data.model.Contact"
+            app:nullable="true" />
+        <argument
+            android:name="state"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/createGroupFragment"
+        android:name="com.pixel.toctalk.ui.home.fragment.createGroup.CreateGroupFragment"
+        android:label="Create new group"
+        tools:layout="@layout/fragment_create_group">
+        <action
+            android:id="@+id/action_createGroupFragment_to_chatFragment"
+            app:destination="@id/chatFragment"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupDetailsFragment"
+        android:name="com.pixel.toctalk.ui.home.fragment.groupDetails.GroupDetailsFragment"
+        android:label="fragment_group_details"
+        tools:layout="@layout/fragment_group_details">
+        <argument
+            android:name="group"
+            app:argType="com.pixel.toctalk.data.model.Group" />
+    </fragment>
+    <fragment
+        android:id="@+id/contentDetailsFragment"
+        android:name="com.pixel.toctalk.ui.home.fragment.contentDetails.ContentDetailsFragment"
+        android:label="fragment_content_details"
+        tools:layout="@layout/fragment_content_details">
+        <argument
+            android:name="contact"
+            app:argType="com.pixel.toctalk.data.model.Contact" />
+    </fragment>
+    <dialog
+        android:id="@+id/joinGroupBottomSheet"
+        android:name="com.pixel.toctalk.ui.home.fragment.home.joinGroup.JoinGroupBottomSheet"
+        android:label="JoinGroupBottomSheet">
+        <action
+            android:id="@+id/action_joinGroupBottomSheet_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <argument
+            android:name="group"
+            app:argType="com.pixel.toctalk.data.model.Group" />
+    </dialog>
+    <fragment
+        android:id="@+id/searchContactBottomSheet"
+        android:name="com.pixel.toctalk.ui.home.fragment.home.searchContact.SearchContactFragment"
+        android:label="Search">
+        <action
+            android:id="@+id/action_searchContactBottomSheet_to_chatFragment"
+            app:destination="@id/chatFragment"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="false" />
+    </fragment>
 </navigation>

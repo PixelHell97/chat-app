@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.pixel.toctalk.data.model.User" />
+
+        <variable
+            name="contact"
+            type="com.pixel.toctalk.data.model.Contact" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:paddingBottom="0.5dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/contact_cv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="0dp"
+            app:contentPadding="2dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/content_pic"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginVertical="8dp"
+                android:layout_marginBottom="8dp"
+                android:padding="2dp"
+                app:imageUrl="@{user.profilePic}"
+                app:shapeAppearanceOverlay="@style/CircularPhoto"
+                app:strokeColor="@color/very_light_blue"
+                app:strokeWidth="2dp"
+                tools:src="@tools:sample/avatars" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="84dp"
+                android:layout_gravity="start|top"
+                android:layout_marginStart="84dp"
+                android:gravity="center|start"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/content_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|start"
+                    android:fontFamily="@font/poppins_medium1"
+                    android:text="@{user.username}"
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp"
+                    tools:text="PixelHell_97" />
+
+                <TextView
+                    android:id="@+id/last_message_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|start"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/gray"
+                    android:visibility="visible"
+                    tools:text="you: Hay bro, wanna come to night?dadaadadda" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/last_message_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="@{contact.lastMessage.formattedTime}"
+                android:textColor="@color/gray"
+                android:visibility="visible"
+                tools:text="02:22 AM" />
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
