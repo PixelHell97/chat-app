@@ -4,7 +4,7 @@ import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import com.pixel.toctalk.data.database.MyDatabase
+import com.pixel.toctalk.data.database.GroupMdb
 import com.pixel.toctalk.data.model.Group
 import com.pixel.toctalk.ui.base.BaseViewModel
 import com.pixel.toctalk.ui.extensions.model.MessageDialogModel
@@ -32,7 +32,7 @@ class CreateGroupViewModel : BaseViewModel() {
     }
 
     private fun createGroupInDB(newGroup: Group) {
-        MyDatabase
+        GroupMdb
             .createGroup(newGroup) { task ->
                 if (task.isSuccessful) {
                     if (groupPicLiveData.value != null) {
@@ -51,14 +51,14 @@ class CreateGroupViewModel : BaseViewModel() {
     }
 
     private fun uploadGroupPic(id: String, imageUri: Uri?, newGroup: Group) {
-        MyDatabase.uploadGroupPic(id, imageUri) { task ->
+        GroupMdb.uploadGroupPic(id, imageUri) { task ->
             updateGroupInDB(id, task.result.toString(), newGroup)
         }
     }
 
     private fun updateGroupInDB(id: String, imageUrl: String?, newGroup: Group) {
         if (imageUrl != null) {
-            MyDatabase
+            GroupMdb
                 .updateGroup(id, imageUrl) { task ->
                     if (task.isSuccessful) {
                         isLoading.value = false
@@ -73,7 +73,7 @@ class CreateGroupViewModel : BaseViewModel() {
                     }
                 }
         } else {
-            MyDatabase
+            GroupMdb
                 .updateGroup(id, newGroup.groupPic!!) { task ->
                     if (task.isSuccessful) {
                         isLoading.value = false

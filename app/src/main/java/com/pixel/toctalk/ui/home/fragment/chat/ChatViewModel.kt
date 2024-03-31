@@ -8,7 +8,9 @@ import com.google.firebase.auth.auth
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.firestore
 import com.pixel.toctalk.Constants
-import com.pixel.toctalk.data.database.MyDatabase
+import com.pixel.toctalk.data.database.ChatMdb
+import com.pixel.toctalk.data.database.PrivateChatMdb
+import com.pixel.toctalk.data.database.UserMdb
 import com.pixel.toctalk.data.model.ChatMessage
 import com.pixel.toctalk.data.model.Contact
 import com.pixel.toctalk.data.model.Group
@@ -39,7 +41,7 @@ class ChatViewModel : BaseViewModel() {
 
     private fun sendMessageInContact(contact: Contact?) {
         val currentUser = Firebase.auth.currentUser ?: return
-        MyDatabase.getUser(currentUser.uid) { task ->
+        UserMdb.getUser(currentUser.uid) { task ->
             if (task.isSuccessful) {
                 val user = task.result.toObject(User::class.java)
                 val message = ChatMessage(
@@ -47,7 +49,7 @@ class ChatViewModel : BaseViewModel() {
                     sender = user,
                     timestamp = Timestamp.now(),
                 )
-                MyDatabase.sendMessage(
+                ChatMdb.sendMessage(
                     contact?.id,
                     Constants.COLLECTION_PRIVATE_CHAT,
                     message,
@@ -67,7 +69,7 @@ class ChatViewModel : BaseViewModel() {
 
     private fun sendMessageInGroup(group: Group?) {
         val currentUser = Firebase.auth.currentUser ?: return
-        MyDatabase.getUser(currentUser.uid) { task ->
+        UserMdb.getUser(currentUser.uid) { task ->
             if (task.isSuccessful) {
                 val user = task.result.toObject(User::class.java)
                 val message = ChatMessage(
@@ -75,7 +77,7 @@ class ChatViewModel : BaseViewModel() {
                     sender = user,
                     timestamp = Timestamp.now(),
                 )
-                MyDatabase.sendMessage(
+                ChatMdb.sendMessage(
                     group?.id,
                     Constants.COLLECTION_GROUPS,
                     message,
@@ -94,9 +96,9 @@ class ChatViewModel : BaseViewModel() {
     }
 
     private fun updateMessageWithId(id: String, docID: String, collection: String) {
-        MyDatabase.updateMessage(id, docID, collection) { task ->
+        ChatMdb.updateMessage(id, docID, collection) { task ->
             if (task.isSuccessful) {
-                MyDatabase.updateLastMessage(id, docID, collection)
+                PrivateChatMdb.updateLastMessage(id, docID, collection)
             }
         }
     }

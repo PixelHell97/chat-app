@@ -31,6 +31,10 @@ class BrowseGroupsScreen : BaseFragment<FragmentBrowseGroupsBinding, BrowseGroup
 
     private fun initRecyclerView() {
         binding.browseGroupsRv.adapter = allGroupsAdapter
+        if (allGroupsAdapter.snapshots.isEmpty()) {
+            binding.messageNoRooms.visibility = View.VISIBLE
+        }
+        binding.messageNoRooms.visibility = View.GONE
         allGroupsAdapter.setOnGroupClickListener { group ->
             val user = Firebase.auth.currentUser ?: return@setOnGroupClickListener
             if (viewModel.isGroupMember(user.uid, group)) {
@@ -38,11 +42,6 @@ class BrowseGroupsScreen : BaseFragment<FragmentBrowseGroupsBinding, BrowseGroup
             } else {
                 showJoinBottomSheet(group)
             }
-        }
-        if (allGroupsAdapter.snapshots.isEmpty()) {
-            binding.messageNoRooms.visibility = View.VISIBLE
-        } else {
-            binding.messageNoRooms.visibility = View.GONE
         }
         allGroupsAdapter.startListening()
     }

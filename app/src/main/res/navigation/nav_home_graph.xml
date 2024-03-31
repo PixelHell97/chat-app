@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.pixel.toctalk.ui.home.fragment.home.HomeFragment"
-        android:label="TokTalk"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_chatFragment"
@@ -49,7 +49,7 @@
     <fragment
         android:id="@+id/createGroupFragment"
         android:name="com.pixel.toctalk.ui.home.fragment.createGroup.CreateGroupFragment"
-        android:label="Create new group"
+        android:label="@string/create_new_group"
         tools:layout="@layout/fragment_create_group">
         <action
             android:id="@+id/action_createGroupFragment_to_chatFragment"
@@ -60,7 +60,6 @@
     <fragment
         android:id="@+id/groupDetailsFragment"
         android:name="com.pixel.toctalk.ui.home.fragment.groupDetails.GroupDetailsFragment"
-        android:label="fragment_group_details"
         tools:layout="@layout/fragment_group_details">
         <argument
             android:name="group"
@@ -69,7 +68,6 @@
     <fragment
         android:id="@+id/contentDetailsFragment"
         android:name="com.pixel.toctalk.ui.home.fragment.contentDetails.ContentDetailsFragment"
-        android:label="fragment_content_details"
         tools:layout="@layout/fragment_content_details">
         <argument
             android:name="contact"
@@ -77,8 +75,7 @@
     </fragment>
     <dialog
         android:id="@+id/joinGroupBottomSheet"
-        android:name="com.pixel.toctalk.ui.home.fragment.home.joinGroup.JoinGroupBottomSheet"
-        android:label="JoinGroupBottomSheet">
+        android:name="com.pixel.toctalk.ui.home.fragment.home.joinGroup.JoinGroupBottomSheet">
         <action
             android:id="@+id/action_joinGroupBottomSheet_to_chatFragment"
             app:destination="@id/chatFragment" />
@@ -89,11 +86,21 @@
     <fragment
         android:id="@+id/searchContactBottomSheet"
         android:name="com.pixel.toctalk.ui.home.fragment.home.searchContact.SearchContactFragment"
-        android:label="Search">
+        android:label="@string/search">
         <action
             android:id="@+id/action_searchContactBottomSheet_to_chatFragment"
             app:destination="@id/chatFragment"
             app:popUpTo="@id/nav_home"
             app:popUpToInclusive="false" />
     </fragment>
+    <fragment
+        android:id="@+id/editAccountFragment"
+        android:name="com.pixel.toctalk.ui.home.fragment.account.EditAccountFragment"
+        android:label="@string/account"
+        tools:layout="@layout/fragment_edit_account" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.pixel.toctalk.ui.home.fragment.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

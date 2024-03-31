@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.legacy.support.v4)
+    implementation(project(":domain"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -74,4 +75,7 @@ dependencies {
 
     // viewPager2
     implementation(libs.androidx.viewpager2)
+
+    // imagePicker
+    implementation(libs.image.picker)
 }

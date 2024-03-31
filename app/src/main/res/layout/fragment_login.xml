@@ -20,6 +20,7 @@
         android:orientation="vertical"
         android:paddingHorizontal="32dp"
         android:paddingTop="32dp"
+        tools:background="@drawable/blue_wave"
         tools:context=".ui.auth.fragment.login.LoginFragment">
 
         <TextView

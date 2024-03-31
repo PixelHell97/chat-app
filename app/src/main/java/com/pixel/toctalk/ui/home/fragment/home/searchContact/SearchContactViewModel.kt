@@ -6,7 +6,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 import com.pixel.toctalk.Constants
-import com.pixel.toctalk.data.database.MyDatabase
+import com.pixel.toctalk.data.database.PrivateChatMdb
 import com.pixel.toctalk.data.model.Contact
 import com.pixel.toctalk.data.model.User
 import com.pixel.toctalk.ui.base.BaseViewModel
@@ -44,7 +44,7 @@ class SearchContactViewModel : BaseViewModel() {
         val newContact = Contact(
             usersID = listOf(myID, user.uid!!),
         )
-        MyDatabase
+        PrivateChatMdb
             .createChat(newContact) {
                 if (it.isSuccessful) {
                     // TODO: Send the new contact with id

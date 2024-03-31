@@ -43,6 +43,7 @@ object RequestMediaPermission {
 
     fun requestGalleryPermission(
         activity: Activity,
+        fragment: Fragment,
         imagePicker: ActivityResultLauncher<PickVisualMediaRequest>,
     ) {
         when {
@@ -57,7 +58,7 @@ object RequestMediaPermission {
                 activity,
                 permission(),
             ) -> {
-                Fragment().showDialog(
+                fragment.showDialog(
                     "This app requires Storage permission for particular feature to work as expected.",
                     "Ok",
                     posAction = {

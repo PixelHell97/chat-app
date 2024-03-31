@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import com.pixel.toctalk.data.database.MyDatabase
+import com.pixel.toctalk.data.database.UserMdb
 import com.pixel.toctalk.data.model.User
 import com.pixel.toctalk.ui.auth.fragment.InputState
 import com.pixel.toctalk.ui.base.BaseViewModel
@@ -42,7 +42,7 @@ class LoginViewModel : BaseViewModel() {
     }
 
     private fun getUser(uid: String?) {
-        MyDatabase
+        UserMdb
             .getUser(uid) { task ->
                 isLoading.value = false
                 if (task.isSuccessful) {

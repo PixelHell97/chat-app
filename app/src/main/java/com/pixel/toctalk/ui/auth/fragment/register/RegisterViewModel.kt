@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import com.pixel.toctalk.data.database.MyDatabase
+import com.pixel.toctalk.data.database.UserMdb
 import com.pixel.toctalk.data.model.User
 import com.pixel.toctalk.ui.auth.fragment.InputState
 import com.pixel.toctalk.ui.base.BaseViewModel
@@ -13,7 +13,7 @@ import com.pixel.toctalk.ui.extensions.model.MessageDialogModel
 
 class RegisterViewModel : BaseViewModel() {
     val auth = Firebase.auth
-    val userProfilePicLiveData = MutableLiveData<Uri>(null)
+    val userProfilePicLiveData = MutableLiveData<Uri>()
     val usernameLiveData = MutableLiveData<String>()
     val usernameError = MutableLiveData<String?>()
     val emailLiveData = MutableLiveData<String>()
@@ -53,7 +53,7 @@ class RegisterViewModel : BaseViewModel() {
 
     private fun createUserInDB(uid: String) {
         if (userProfilePicLiveData.value != null) {
-            MyDatabase.uploadUserPic(uid, userProfilePicLiveData.value) {
+            UserMdb.uploadUserPic(uid, userProfilePicLiveData.value) {
                 if (it.isSuccessful) {
                     val user = User(
                         uid = uid,
@@ -61,7 +61,7 @@ class RegisterViewModel : BaseViewModel() {
                         email = emailLiveData.value!!,
                         profilePic = it.result.toString(),
                     )
-                    MyDatabase
+                    UserMdb
                         .createUser(user) { task ->
                             isLoading.value = false
                             if (task.isSuccessful) {
@@ -86,7 +86,7 @@ class RegisterViewModel : BaseViewModel() {
                 username = usernameLiveData.value!!,
                 email = emailLiveData.value!!,
             )
-            MyDatabase
+            UserMdb
                 .createUser(user) { task ->
                     isLoading.value = false
                     if (task.isSuccessful) {

@@ -10,8 +10,9 @@
     <string name="create_account">Create Account</string>
     <string name="password_confirm">Confirm Password</string>
     <string name="create_group">Create Group</string>
-    <string name="no_rooms_joined_yet">No rooms joined yet\n</string>
-    <string name="no_rooms_here_yet">No rooms here yet\nclick the FAB to create your room</string>
+    <string name="no_rooms_joined_yet">No rooms joined yet</string>
+    <string name="no_rooms_here_yet">No rooms here yet
+        click the FAB to create your room</string>
     <string name="no_chat_here_yet">No chat here yet</string>
 
     <string-array name="home_tabs_title">
@@ -40,6 +41,15 @@
     <string name="you">you: %s</string>
     <string name="no_user_found">No user found</string>
     <string name="login_again">Login again</string>
-    <string name="login_failed">Unable to login\nPlease try again</string>
+    <string name="login_failed">Unable to login
+        Please try again</string>
     <string name="unable_to_login">Unable to Login</string>
+    <string name="save">Save</string>
+    <string name="logout">Logout</string>
+    <string name="settings">Settings</string>
+    <string name="account">Account</string>
+    <string name="search">Search</string>
+    <string name="update_account_failed">Something went wrong
+        Unable to update your account, try again later</string>
+    <string name="back">Back</string>
 </resources>

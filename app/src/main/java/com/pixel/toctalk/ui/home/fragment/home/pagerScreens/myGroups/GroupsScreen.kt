@@ -38,13 +38,12 @@ class GroupsScreen : BaseFragment<FragmentGroupsBinding, GroupsViewModel>() {
 
     private fun initRecyclerView() {
         binding.myGroups.adapter = myGroupAdapter
-        myGroupAdapter.setOnGroupClickListener { group ->
-            navToChat(group)
-        }
         if (myGroupAdapter.snapshots.isEmpty()) {
             binding.messageNoRooms.visibility = View.VISIBLE
-        } else {
-            binding.messageNoRooms.visibility = View.GONE
+        }
+        binding.messageNoRooms.visibility = View.GONE
+        myGroupAdapter.setOnGroupClickListener { group ->
+            navToChat(group)
         }
         myGroupAdapter.startListening()
     }

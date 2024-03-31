@@ -14,5 +14,6 @@ data class User(
     companion object {
         const val UID = "uid"
         const val USERNAME_FIELD = "username"
+        const val PROFILE_PIC_FIELD = "profilePic"
     }
 }

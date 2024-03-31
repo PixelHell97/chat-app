@@ -29,9 +29,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterViewModel
     ) {
         super.onViewCreated(view, savedInstanceState)
         imagePicker = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) {
-            if (it != null) {
-                viewModel.setProfilePic(it)
-            }
+            viewModel.setProfilePic(it!!)
         }
         initViews()
         observeLiveData()
@@ -65,7 +63,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterViewModel
             viewModel.isValidInput(password, InputState.PasswordInput)
         }
         binding.userProfilePic.setOnClickListener {
-            RequestMediaPermission.requestGalleryPermission(requireActivity(), imagePicker)
+            RequestMediaPermission.requestGalleryPermission(requireActivity(), this, imagePicker)
         }
     }
 }

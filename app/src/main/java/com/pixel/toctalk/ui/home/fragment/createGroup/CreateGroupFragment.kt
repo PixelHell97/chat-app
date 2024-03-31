@@ -62,7 +62,7 @@ class CreateGroupFragment : BaseFragment<FragmentCreateGroupBinding, CreateGroup
             viewModel.isValidGroupName(name)
         }
         binding.groupImage.setOnClickListener {
-            RequestMediaPermission.requestGalleryPermission(requireActivity(), imagePicker)
+            RequestMediaPermission.requestGalleryPermission(requireActivity(), this, imagePicker)
         }
     }
 }

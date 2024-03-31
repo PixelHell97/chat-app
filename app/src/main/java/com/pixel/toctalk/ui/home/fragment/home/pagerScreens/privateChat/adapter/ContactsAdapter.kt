@@ -10,7 +10,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.pixel.toctalk.R
-import com.pixel.toctalk.data.database.MyDatabase
+import com.pixel.toctalk.data.database.UserMdb
 import com.pixel.toctalk.data.model.Contact
 import com.pixel.toctalk.data.model.User
 import com.pixel.toctalk.databinding.ItemContactBinding
@@ -72,7 +72,7 @@ class ContactsAdapter(val context: Context, options: FirestoreRecyclerOptions<Co
         val myUserID = Firebase.auth.currentUser?.uid
         for (uid in contact.usersID!!) {
             if (uid != myUserID) {
-                MyDatabase.getUser(uid) { task ->
+                UserMdb.getUser(uid) { task ->
                     if (task.isSuccessful) {
                         val contactUser = task.result.toObject(User::class.java)
                         holder.bind(contactUser, contact)
