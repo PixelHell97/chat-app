@@ -48,9 +48,8 @@ class SearchContactFragment : BaseFragment<FragmentSearchContactBinding, SearchC
         binding.contactsRv.adapter = adapter
         if (adapter.snapshots.isEmpty()) {
             binding.messageNoUserFound.visibility = View.VISIBLE
-        } else {
-            binding.messageNoUserFound.visibility = View.GONE
         }
+        binding.messageNoUserFound.visibility = View.GONE
         adapter.setOnContactClickListener { user ->
             viewModel.createChatInDB(user)
         }

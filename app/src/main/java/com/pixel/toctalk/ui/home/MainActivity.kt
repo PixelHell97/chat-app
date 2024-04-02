@@ -39,6 +39,9 @@ class MainActivity : AppCompatActivity() {
         setUpNav()
     }
 
+    fun setActionbarTitle(title: String) {
+        supportActionBar?.title = title
+    }
     private fun setUpNav() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.homeFragmentContainer) as NavHostFragment
@@ -97,5 +100,10 @@ class MainActivity : AppCompatActivity() {
             .setMessage(message.message)
             .setCancelable(message.isCancelable)
         alertDialog.show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        setSupportActionBar(null)
     }
 }

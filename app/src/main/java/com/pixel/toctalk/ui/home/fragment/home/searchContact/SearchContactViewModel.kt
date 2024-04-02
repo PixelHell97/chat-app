@@ -47,8 +47,8 @@ class SearchContactViewModel : BaseViewModel() {
         PrivateChatMdb
             .createChat(newContact) {
                 if (it.isSuccessful) {
-                    // TODO: Send the new contact with id
-                    state.value = SearchContactState.NavToChat(newContact)
+                    state.value = it.result.toObject(Contact::class.java)
+                        ?.let { it1 -> SearchContactState.NavToChat(it1) }
                 }
             }
     }

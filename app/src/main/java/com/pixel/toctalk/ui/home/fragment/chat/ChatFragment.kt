@@ -8,6 +8,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pixel.toctalk.R
+import com.pixel.toctalk.data.database.PrivateChatMdb
 import com.pixel.toctalk.data.model.Contact
 import com.pixel.toctalk.data.model.Group
 import com.pixel.toctalk.databinding.FragmentChatBinding
@@ -43,7 +44,7 @@ class ChatFragment : BaseFragment<FragmentChatBinding, ChatViewModel>() {
             }
 
             MessageState.GROUP.value -> {
-                (activity as MainActivity).supportActionBar?.title = args.groupChat?.name
+                (activity as MainActivity).setActionbarTitle(args.groupChat?.name!!)
                 initGroupView()
                 viewModel.messageState.value = MessageState.GROUP
                 viewModel.initGroupChatFireStoreOption()
@@ -110,6 +111,15 @@ class ChatFragment : BaseFragment<FragmentChatBinding, ChatViewModel>() {
         val action =
             ChatFragmentDirections.actionChatFragmentToContentDetailsFragment(contact!!)
         findNavController().navigate(action)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        when (args.state) {
+            MessageState.CONTACT.value -> {
+                PrivateChatMdb.checkIfChatEmpty(args.contentChat?.id)
+            }
+        }
     }
 
     override fun onDestroyView() {
