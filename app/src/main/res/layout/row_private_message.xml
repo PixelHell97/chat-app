@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="message"
+            type="com.pixel.toctalk.data.model.ChatMessage" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_contact_message_received"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/item_private_sent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="@color/chat_blue"
+            app:contentPadding="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/message_sent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|top"
+                    android:layout_margin="4dp"
+                    android:maxWidth="145dp"
+                    android:text="@{message.content}"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    tools:text="Hi, I'm new here" />
+
+                <TextView
+                    android:id="@+id/message_sent_at"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginStart="4dp"
+                    android:text="@{message.getFormattedTime()}"
+                    android:textColor="@color/gray"
+                    android:textSize="12sp"
+                    tools:text="02:00 AM" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/item_private_received"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="@color/white"
+            app:contentPadding="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/message_received"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|top"
+                    android:layout_margin="4dp"
+                    android:maxWidth="145dp"
+                    android:text="@{message.content}"
+                    android:textColor="@color/text_gray"
+                    android:textSize="14sp"
+                    tools:text="Hi, I'm new here" />
+
+                <TextView
+                    android:id="@+id/message_received_at"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginStart="4dp"
+                    android:text="@{message.formattedTime}"
+                    android:textColor="@color/clock_gray"
+                    android:textSize="11sp"
+                    tools:text="02:00 AM" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- internet permission -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Media permission -->
+    <!-- Devices running Android 12L (API level 32) or lower -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" /> <!-- Devices running Android 13 (API level 33) or higher -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" /> <!-- To handle the reselection within the app on Android 14 (API level 34) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +23,13 @@
         android:theme="@style/Theme.TocTalk"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.home.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.AuthHostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +37,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--TODO: Solve package unresolved-->
+        <!-- <service android:name="com.google.android.gms.metadata.ModuleDependencies"
+             android:enabled="false"
+             android:exported="false"
+             tools:ignore="MissingClass">
+             <intent-filter>
+                 <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
+             </intent-filter>
+             <meta-data android:name="photopicker_activity:0:required" android:value="" />
+         </service>-->
     </application>
 
 </manifest>

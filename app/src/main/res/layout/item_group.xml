@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="group"
+            type="com.pixel.toctalk.data.model.Group" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="8dp"
+        app:contentPadding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/room_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:importantForAccessibility="no"
+                android:padding="4dp"
+                app:imageUrl="@{group.groupPic}"
+                app:shapeAppearanceOverlay="@style/CircularPhoto"
+                app:strokeColor="@color/dark_blue"
+                app:strokeWidth="4dp"
+                tools:src="@tools:sample/avatars" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/room_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:fontFamily="@font/poppins_medium1"
+                android:gravity="center"
+                android:maxWidth="92dp"
+                android:text="@{group.name}"
+                android:textColor="#353535"
+                android:textSize="14sp"
+                tools:text="The Movies Zone" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/room_members_counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@plurals/members_count(group.getMembersCount(), group.getMembersCount())}"
+                android:textColor="#7F7F7F"
+                android:textSize="12sp"
+                tools:text="14 Members" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

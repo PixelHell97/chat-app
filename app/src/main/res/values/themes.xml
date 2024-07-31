@@ -1,9 +1,22 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.TocTalk" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.TocTalk" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/dark_blue</item>
     </style>
 
     <style name="Theme.TocTalk" parent="Base.Theme.TocTalk" />
+
+    <style name="Theme.TocTalk.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.TocTalk.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.TocTalk.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CircularPhoto">
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

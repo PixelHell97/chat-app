@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.pixel.toctalk.ui.home.fragment.createGroup.CreateGroupViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="@drawable/bg_main"
+        tools:context=".ui.home.fragment.createGroup.CreateGroupFragment">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="16dp">
+
+                <TextView
+                    android:id="@+id/greeting_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/create_new_group"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/group_image"
+                    android:layout_width="182dp"
+                    android:layout_height="182dp"
+                    android:layout_marginTop="64dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/pick_image"
+                    android:src="@{vm.groupPicLiveData}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/greeting_tv"
+                    app:shapeAppearanceOverlay="@style/CircularPhoto" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/group_name_field"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="64dp"
+                    android:gravity="center"
+                    android:hint="@string/group_name"
+                    android:maxLines="5"
+                    app:errorMessage="@{vm.groupNameError}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/group_image"
+                    tools:text="@tools:sample/lorem/random">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/name_ed"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@={vm.groupNameLiveData}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/group_description_field"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:hint="@string/group_description"
+                    android:maxLines="5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/group_name_field">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/room_desc_ed"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@={vm.groupDescLiveData}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_create"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:onClick="@{() -> vm.createGroup()}"
+                    android:paddingVertical="16dp"
+                    android:text="@string/create_group"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="@{vm.isLoading == true ? View.INVISIBLE : View.VISIBLE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/group_description_field" />
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/group_create_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    android:visibility="@{vm.isLoading == false ? View.GONE : View.VISIBLE}"
+                    app:indicatorColor="@color/light_blue"
+                    app:layout_constraintBottom_toBottomOf="@id/btn_create"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/btn_create" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

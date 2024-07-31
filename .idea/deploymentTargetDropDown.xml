@@ -2,8 +2,23 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="app">
+      <entry key="AuthHostActivity">
         <State />
+      </entry>
+      <entry key="app">
+        <State>
+          <targetsSelectedWithDialog>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\abakh\.android\avd\Pixel_3_API_33_API_33.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetsSelectedWithDialog>
+        </State>
       </entry>
     </value>
   </component>

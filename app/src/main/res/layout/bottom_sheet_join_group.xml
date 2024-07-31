@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="group"
+            type="com.pixel.toctalk.data.model.Group" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:contentPadding="8dp"
+        tools:context=".home.ui.home.joinGroup.JoinGroupBottomSheet">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_marginHorizontal="82dp"
+            android:background="@drawable/shaped_gray" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/group_photo"
+            android:layout_width="94dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="64dp"
+            android:adjustViewBounds="true"
+            app:imageUrl="@{group.groupPic}"
+            app:shapeAppearanceOverlay="@style/CircularPhoto"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:text="@{group.name}"
+            android:textColor="@color/text_gray"
+            android:textSize="16sp"
+            tools:text="TheFriends" />
+
+        <TextView
+            android:id="@+id/group_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="180dp"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:maxWidth="240dp"
+            android:text="@{group.description}"
+            android:textColor="@color/gray"
+            android:textSize="14sp"
+            tools:text="@string/bottom_sheet_behavior" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/group_members"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="84dp"
+            android:text="@{@plurals/members_count(group.getMembersCount(), group.getMembersCount())}"
+            android:textColor="#7F7F7F"
+            android:textSize="12sp"
+            tools:text="14 Members" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_join"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="260dp"
+            android:background="@drawable/shaped_send_btn"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:paddingHorizontal="82dp"
+            android:text="@string/join"
+            android:textSize="16sp" />
+    </com.google.android.material.card.MaterialCardView>
+</layout>

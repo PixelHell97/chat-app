@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AppInsightsSettings">
+    <option name="selectedTabId" value="Android Vitals" />
     <option name="tabSettings">
       <map>
         <entry key="Firebase Crashlytics">
@@ -8,10 +9,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.pixel.toctalk" />
+                  <option name="mobileSdkAppId" value="1:855891260054:android:cc4c5ba01907220e1888b7" />
+                  <option name="projectId" value="chat-app-b0c69" />
+                  <option name="projectNumber" value="855891260054" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

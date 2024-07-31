@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.pixel.toctalk.data.model.User" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:background="@drawable/side_nav_bar"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/user_pic"
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:paddingTop="8dp"
+            android:scaleType="fitCenter"
+            app:imageUrl="@{user.profilePic}"
+            app:shapeAppearanceOverlay="@style/CircularPhoto"
+            tools:srcCompat="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:id="@+id/user_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="@{user.username}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            tools:text="pixelh_97" />
+
+        <TextView
+            android:id="@+id/user_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.email}"
+            tools:text="abakhet2010@gmail.com" />
+    </LinearLayout>
+</layout>
