@@ -15,7 +15,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/blue_wave"
         android:paddingHorizontal="32dp"
         tools:context=".ui.auth.fragment.register.RegisterFragment">
 
