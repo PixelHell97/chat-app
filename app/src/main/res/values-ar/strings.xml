@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TocTalk</string>
+    <string name="email">البريد الالكتروني</string>
+    <string name="password">كلمة المرور</string>
+    <string name="invalid_password">
+        يجب أن تتكون كلمة المرور من 8 أحرف على الأقل وتشمل:
+        &#8226; حرف واحد على الأقل (A-Z أو a-z)
+        &#8226; رقم واحد على الأقل (0-9)
+        &#8226; رمز خاص واحد على الأقل (@, $, !, %, *, #, ?, &amp;)
+    </string>
+    <string name="forget_password">نسيت كلمة المرور؟</string>
+    <string name="login">تسجيل دخول</string>
+    <string name="or_create_my_account">انشاء حساب جديد</string>
+    <string name="username">اسم المسخدم</string>
+    <string name="join">انضمام</string>
+    <string name="create_account">انشاء حساب</string>
+    <string name="password_confirm">تاكيد كلمة المرور</string>
+    <string name="create_group">انشاء مجموعه</string>
+    <string name="no_rooms_joined_yet">لم يتم الإنضمام الي أي غرف بعد</string>
+    <string name="no_rooms_here_yet">لا يوجد مجموعات هنا بعد
+    انقر الزر العائم لانشاء مجموعه جديده</string>
+    <string name="no_chat_here_yet">لا توجد دردشه هنا بعد</string>
+    <string name="type_message">اكتب رسالة…</string>
+    <string name="send">إرسال</string>
+    <string name="create_new_group">انشاء مجموعة جديده</string>
+    <string name="group_name">اسم المجموعه</string>
+    <string name="group_description">وصف المجموعه</string>
+    <string name="click_to_select_a_photo">انقر لإختيار الصوره</string>
+    <string name="menu_home">الرئيسية</string>
+    <string name="menu_account">الحساب</string>
+    <string name="leave_group">مغادرة المجموعه</string>
+    <string name="description">الوصف…</string>
+    <string name="members">الاعضاء…</string>
+    <string name="contact_username">اسم المستخدم</string>
+    <string name="search_chat">بحث</string>
+    <string name="you">انت: %s</string>
+    <string name="no_user_found">لا يوجد مستخدم</string>
+    <string name="login_again">سجدل دخول مجددا</string>
+    <string name="login_failed">غير قادر علي تسجيد الدخول
+    الرجاء المحاوله مره اخري</string>
+    <string name="unable_to_login">غير قادر علي تسجيد الدخول</string>
+    <string name="save">حفظ</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="settings">الإعدادات</string>
+    <string name="account">الحساب</string>
+    <string name="search">البحث</string>
+    <string name="update_account_failed">حدث خطأ ما
+    لم نتمكن من تحديث حسابك, الرجاء المحاوله لاحقا</string>
+    <string name="back">الرجوع</string>
+    <string name="contact_details">تفاصيل المستخدم</string>
+    <string name="delete_chat">خذف المحادثه</string>
+    <string name="block_user">حذر المستخدم</string>
+    <string name="block_group">حذر المجموعه</string>
+    <string name="group_details">تفاصيل المجموعه</string>
+    <string name="ok">تم</string>
+    <string name="permission_message">هذا التطبيق يستعمل اذن الوصول للمخزن</string>
+    <string name="edit_group">تعديل المجموعه</string>
+    <string name="change_group_name">تغيير اسم المجموعه</string>
+    <string name="name_successfully_updated">تم تغيير الاسم بنجاح</string>
+    <string name="name_updated_failed">فشل التحديث</string>
+    <string name="edit_group_pic">تغيير الصوره</string>
+    <string name="remove_pic">حذف الصوره</string>
+    <string name="done_remove_group_pic">تم حذف الصوره بنجاح</string>
+    <string name="change_group_des">تغيير وصف المجموعه</string>
+    <string name="you_have_leaved_the_group">لقد غادرت المجموعه</string>
+    <string name="are_you_sure_you_want_to_leave_this_group">هل انت متاكد من انك تريد مغادرة المجموعه</string>
+    <string name="leave">مغادره</string>
+    <string name="cancel">الغاء</string>
+    <string name="invalid_email">يرجى إدخال عنوان بريد إلكتروني صحيح</string>
+
+    <string-array name="home_tabs_title">
+        <item>محادثاتي</item>
+        <item>مجموعاتي</item>
+        <item>تصفح المجموعات</item>
+    </string-array>
+
+    <plurals name="members_count">
+        <item quantity="zero">لا يوجد اعضاء %d</item>
+        <item quantity="one">عضو %d</item>
+        <item quantity="two">عضوان %d</item>
+        <item quantity="few">اعضاء %d</item>
+        <item quantity="many">اعضاء %d</item>
+    </plurals>
+    <string name="field_is_required">الحقل مطلوب</string>
+</resources>

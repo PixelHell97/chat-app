@@ -2,6 +2,12 @@
     <string name="app_name">TocTalk</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="invalid_password">
+        Your password must be at least 8 characters long and include:
+        &#8226; At least one letter (A-Z or a-z)
+        &#8226; At least one digit (0-9)
+        &#8226; At least one special character (@, $, !, %, *, #, ?, &amp;)
+    </string>
     <string name="forget_password">Forget Password?</string>
     <string name="login">Login</string>
     <string name="or_create_my_account">Or Create My Account</string>
@@ -11,8 +17,8 @@
     <string name="password_confirm">Confirm Password</string>
     <string name="create_group">Create Group</string>
     <string name="no_rooms_joined_yet">No rooms joined yet</string>
-    <string name="no_rooms_here_yet">No rooms here yet
-        click the FAB to create your room</string>
+    <string name="no_rooms_here_yet">No groups here yet
+        click the FAB to create your group</string>
     <string name="no_chat_here_yet">No chat here yet</string>
 
     <string-array name="home_tabs_title">
@@ -20,11 +26,10 @@
         <item>My Groups</item>
         <item>Browse Groups</item>
     </string-array>
-    <plurals name="members_count">
+    <plurals name="members_count" translatable="false">
         <item quantity="one">%d Member</item>
         <item quantity="other">%d Members</item>
     </plurals>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="type_message">Type message</string>
     <string name="send">Send</string>
     <string name="create_new_group">Create new group</string>
@@ -52,4 +57,40 @@
     <string name="update_account_failed">Something went wrong
         Unable to update your account, try again later</string>
     <string name="back">Back</string>
+    <string name="contact_details">Contact Details</string>
+    <string name="delete_chat">Delete Chat</string>
+    <string name="block_user">Block User</string>
+    <string name="block_group">Block Group</string>
+    <string name="group_details">Group Details</string>
+    <string name="ok">OK</string>
+    <string name="permission_message">This app requires Storage permission for particular feature to work as expected.</string>
+    <string name="edit_group">Edit Group</string>
+    <string name="change_group_name">Change group name</string>
+    <string name="name_successfully_updated">Name successfully updated</string>
+    <string name="name_updated_failed">Update failed</string>
+    <string name="edit_group_pic">Change picture</string>
+    <string name="remove_pic">Remove picture</string>
+    <string name="done_remove_group_pic">Picture removed successfully</string>
+    <string name="change_group_des">Change group description</string>
+    <string name="you_have_leaved_the_group">You have leaved the group</string>
+    <string name="are_you_sure_you_want_to_leave_this_group">Are you sure you want to leave this group?</string>
+    <string name="leave">Leave</string>
+    <string name="cancel">Cancel</string>
+    <string name="invalid_email">Please enter a valid email address</string>
+    <string name="field_is_required">Field is required</string>
+    <string name="enter_your_email">Enter your Email</string>
+    <string name="continue_prosses">Continue</string>
+    <string name="error_invalid_email">Invalid email format.</string>
+    <string name="error_wrong_email_or_password">Incorrect email or password.</string>
+    <string name="error_user_not_found">User not found.</string>
+    <string name="error_operation_not_allowed">This operation is not allowed.</string>
+    <string name="error_user_disabled">This user account is disabled.</string>
+    <string name="error_network">Network error. Please check your connection.</string>
+    <string name="error_unexpected">An unexpected error occurred.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="unmatched_password">Password dosen\'t match</string>
+    <string name="complete_profile_info">Complete Profile info</string>
+    <string name="username_out_of_range">Username should be atleast 3 character or above</string>
+    <string name="error_email_already_in_use">The email you entered is already in use</string>
 </resources>
